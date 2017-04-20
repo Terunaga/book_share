@@ -18,7 +18,7 @@
 
 ## Books
 
-###books_structure
+### books_structure
 | column  | type    | constraint              |
 |---------|---------|-------------------------|
 | name    | string  | unique, null false      |
