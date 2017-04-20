@@ -1,27 +1,77 @@
-## Laravel PHP Framework
+# Book_Share Database Structures
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Users
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+### users_structure
+| column                | type   | constraint                |
+|-----------------------|--------|---------------------------|
+| name                  | string | unique, null false        |
+| email                 | string | unique, null false        |
+| password              | string | unique, null false        |
+| confirmation password | string | unique, null false        |
+| avatar                | string |                           |
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+### users_associations
+* has_many :my_books
+* has_many :loans
+* has_many :borrowed_books
 
-## Official Documentation
+## Books
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+###books_structure
+| column  | type    | constraint              |
+|---------|---------|-------------------------|
+| name    | string  | unique, null false      |
+| rate    | integer | null false              |
+| comment | text    |                         |
+| image   | text    |                         |
+| status  | integer | null false              |
+| user_id | integer | null false, foreign_key |
 
-## Contributing
+### books_associations
+* belongs_to :user
+* has_many :loans
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
 
-## Security Vulnerabilities
+## Loans
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+### loans_structure
+| column      | type    | constraint              |
+|-------------|---------|-------------------------|
+| borrower_id | integer | foreign_key, null false |
+| lender_id   | integer | foreign_key, null false |
+| book_id     | integer | foreign_key, null false |
+| status      | integer | null false              |
+| start_date  | date    | null false              |
+| finish_date | date    | null false              |
 
-### License
+### loans_associations
+* belongs_to :user
+* belongs_to :book
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+## Reviews
+
+### reviews_structure
+| column  | type    | constraint              |
+|---------|---------|-------------------------|
+| user_id | integer | foreign_key, null false |
+| book_id | integer | foreign_key, null false |
+| comment | text    |                         |
+
+### reviews_associations
+* belongs_to :user
+* belongs_to :book
+
+
+## Interests
+
+### interests_structure
+| column  | type    | constraint              |
+|---------|---------|-------------------------|
+| user_id | integer | foreign_key, null false |
+| book_id | integer | foreign_key, null false |
+
+### reviews_associations
+* belongs_to :user
+* belongs_to :book
