@@ -15,22 +15,26 @@
 * has_many :my_books
 * has_many :loans
 * has_many :borrowed_books
+* has_many :reviews
+* has_many :interests
 
 ## Books
 
 ### books_structure
-| column  | type    | constraint              |
-|---------|---------|-------------------------|
-| name    | string  | unique, null false      |
-| rate    | integer | null false              |
-| comment | text    |                         |
-| image   | text    |                         |
-| status  | integer | null false              |
-| user_id | integer | null false, foreign_key |
+| column   | type    | constraint              |
+|----------|---------|-------------------------|
+| name     | string  | unique, null false      |
+| rate     | integer | null false              |
+| comment  | text    |                         |
+| image    | text    |                         |
+| status   | integer | null false              |
+| user_id  | integer | null false, foreign_key |
 
 ### books_associations
 * belongs_to :user
+* has_many :genres
 * has_many :loans
+* has_many :reviews
 
 
 ## Loans
@@ -64,6 +68,17 @@
 * belongs_to :book
 
 
+## Genres
+
+### genres_structure
+| column | type   | constraint |
+|--------|--------|------------|
+| genre  | string | null false |
+
+### genres_associations
+* has_many :books
+
+
 ## Interests
 
 ### interests_structure
@@ -75,3 +90,16 @@
 ### reviews_associations
 * belongs_to :user
 * belongs_to :book
+
+
+## Book_genres
+
+### book_genres_structure
+| column   | type    | constraint              |
+|----------|---------|-------------------------|
+| book_id  | integer | foreign_key, null false |
+| genre_id | integer | foreign_key, null false |
+
+### book_genres_associations
+* belongs_to :book
+* belongs_to :genre
