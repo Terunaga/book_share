@@ -9,5 +9,5 @@
     <span class="rating-star">
         <i class="star-actived rate-90"></i>
     </span>
-    <p><a href="/books/{{ $book->id }}/edit" class="btn btn-primary">Button</a></p>
+    <p><a href="/books/{{ $book->id }}/edit" class="btn btn-primary">編集</a></p>
 </div>

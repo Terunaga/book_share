@@ -35,4 +35,11 @@ class BooksController extends Controller
       );
       return redirect('/');
     }
+
+    public function edit($id)
+    {
+      $book = Book::find($id);
+
+      return view('books.edit')->with('book', $book);
+    }
 }
