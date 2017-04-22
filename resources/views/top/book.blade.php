@@ -1,6 +1,6 @@
 <div class="col-xs-3 portfolio-item">
     <a href="#">
-        <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+        <img class="img-responsive" src="{{ $book->image }}" alt="">
     </a>
     <h3>
         <a href="#">{{ $book->name }}</a>
