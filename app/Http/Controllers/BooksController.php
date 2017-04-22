@@ -30,7 +30,7 @@ class BooksController extends Controller
           'name'    => $request->name,
           'rate'    => $request->rate,
           'image'   => $request->image,
-          'comment' => $request->name,
+          'comment' => $request->name
         )
       );
       return redirect('/');
@@ -41,5 +41,19 @@ class BooksController extends Controller
       $book = Book::find($id);
 
       return view('books.edit')->with('book', $book);
+    }
+
+    public function update($id, Request $request)
+    {
+      Book::find($id)->update(
+        array(
+          'name'    => $request->name,
+          'rate'    => $request->rate,
+          'image'   => $request->image,
+          'comment' => $request->name
+        )
+      );
+
+      return redirect('/');
     }
 }
