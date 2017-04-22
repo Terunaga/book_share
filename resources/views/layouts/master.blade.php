@@ -9,11 +9,10 @@
     </head>
 
     <body>
-        @include('common.header')
+        @include('layouts.header')
         <div class="container">
             @yield('content')
-            <hr>
-            @include('common.footer')
+            @include('layouts.footer')
         </div>
 
         <!-- jQuery -->
