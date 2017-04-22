@@ -32,4 +32,12 @@
     </div>
   </div>
 </div>
+
+<hr>
+
+<div class="row">
+  @foreach($books as $book)
+    @include('top.book', ['book' => $book])
+  @endforeach
+</div>
 @endsection
