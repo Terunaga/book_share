@@ -1,0 +1,19 @@
+.sub_header--item span {
+  border-bottom: solid 1px #eee;
+  padding-bottom: 10px;
+}
+.sub_header--button {
+  margin-top: 20px;
+}
+.profile {
+  font-size: 18px;
+}
+.profile__items {
+  list-style: none;
+}
+.profile__items li div {
+  padding: 15px 0 15px 0;
+}
+.profile__items--item {
+  font-weight: bold;
+}

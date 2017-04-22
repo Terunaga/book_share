@@ -1,0 +1,26 @@
+.sub_header {
+  &--item span {
+    border-bottom: solid 1px #eee;
+    padding-bottom: 10px;
+  }
+
+  &--button {
+    margin-top: 20px;
+  }
+}
+
+.profile {
+  font-size: 18px;
+
+  &__items {
+    list-style: none;
+
+    li div{
+      padding: 15px 0 15px 0;
+    }
+
+    &--item {
+      font-weight: bold;
+    }
+  }
+}
