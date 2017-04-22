@@ -9,7 +9,7 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <div clas="profile">
+    <div class="profile">
       {{ Form::model($user, array('action' => array('UsersController@update', $user->id), 'method' => 'PATCH')) }}
         <ul class="profile__items">
           <li>

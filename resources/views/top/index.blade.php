@@ -1,6 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
+
+<div class="navbar-right top_register">
+    <a class="btn btn-primary btn-lg top_register--button" href="/books/create" role="button">本を登録する</a>
+</div>
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">Page Heading

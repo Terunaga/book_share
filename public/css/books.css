@@ -1,0 +1,12 @@
+.books {
+  font-size: 18px;
+}
+.books__name, .books__image {
+  width: 100%;
+  height: 40px;
+  padding: 0 10px 0 10px;
+}
+.books__comment {
+  width: 100%;
+  padding: 10px;
+}
