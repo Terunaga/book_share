@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="/assets/stylesheets/bootstrap.css">
         <link rel="stylesheet" href="/assets/stylesheets/bootstrap-theme.css">
         <link rel="stylesheet" href="/assets/stylesheets/3-col-portfolio.css">
+        <link rel="stylesheet" href="/assets/stylesheets/review_star.css">
         <link rel="stylesheet" href="/css/my_page.css">
         <link rel="stylesheet" href="/css/top.css">
         <link rel="stylesheet" href="/css/books.css">
