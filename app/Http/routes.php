@@ -8,5 +8,5 @@ Route::group(['middleware' => ['web']], function () {
     Route::auth();
     Route::get('/', 'TopController@index');
     Route::resource('top', 'TopController', ['only' => 'index']);
-    Route::resource('users', 'UsersController', ['only' => ['show']]);
+    Route::resource('users', 'UsersController', ['only' => ['show', 'edit', 'update']]);
 });

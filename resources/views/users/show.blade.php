@@ -13,7 +13,7 @@
       <h2 class="col-xs-10 sub_header--item"><span>基本情報</span></h2>
       @if (Auth::user()->id == $user->id)
         <p class="col-xs-2 sub_header--button">
-          <a href="users/{{ $user->id }}/edit" class="btn btn-primary">編集</a>
+          <a href="/users/{{ $user->id }}/edit" class="btn btn-primary">編集</a>
         </p>
       @endif
     </div>
