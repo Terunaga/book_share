@@ -6,6 +6,6 @@ $(function(){
     var lastName  = text.replace(firstName, '').replace(/\s+/g, '');
 
     $('.books__author_firstname').val(firstName);
-    $('.books__author_lastname').val(lastName);
+    $('.books__author_lastname' ).val(lastName);
   });
 });
