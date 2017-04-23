@@ -1,10 +1,30 @@
 <ul class="profile__items">
   <li>
     <div class="col-xs-3 profile__items--item">
-      {{ Form::label('name', '名前') }}
+      {{ Form::label('name', 'タイトル') }}
     </div>
     <div class="col-xs-9 ">
-      {{ Form::text('name', $book->name, ['class' => 'books__name', 'placeholder' => '本の名前を記入してください（必須）', 'required' => 'true']) }}
+      {{ Form::text('name', $book->name, ['class' => 'books__title', 'placeholder' => '本のタイトルを記入してください（必須）', 'required' => 'true']) }}
+    </div>
+  </li>
+  <li>
+    <div class="col-xs-3 profile__items--item">
+      {{ Form::label('authors', '著者名') }}
+    </div>
+    <div class="col-xs-9">
+      {{ Form::select('authors', author_names($authors), null, ['class' => 'books__author_names']) }}
+    </div>
+  </li>
+  <li>
+    <div class="col-xs-3 profile__items--item">
+    </div>
+    <div class="col-xs-4">
+      {{ Form::text('last_name', $book->author_last_name(), ['class' => 'books__author_lastname', 'placeholder' => '著者の姓を記入してください（必須）', 'required' => 'true']) }}
+    </div>
+    <div class="col-xs-1">
+    </div>
+    <div class="col-xs-4">
+      {{ Form::text('first_name', $book->author_first_name(), ['class' => 'books__author_firstname', 'placeholder' => '著者の名を記入してください（必須）', 'required' => 'true']) }}
     </div>
   </li>
   <li>

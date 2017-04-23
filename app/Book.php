@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     protected $fillable = array(
-      'name', 'rate', 'image', 'comment', 'status', 'user_id'
+      'name', 'rate', 'image', 'comment', 'status', 'author_id', 'user_id'
     );
 
     public function user()
@@ -18,5 +18,15 @@ class Book extends Model
     public function author()
     {
       return $this->belongsTo(Author::class);
+    }
+
+    public function author_last_name()
+    {
+      return is_null($this->author) ? '' : $this->author->last_name;
+    }
+
+    public function author_first_name()
+    {
+      return is_null($this->author) ? '' : $this->author->first_name;
     }
 }
