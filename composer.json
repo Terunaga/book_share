@@ -24,7 +24,8 @@
         ],
         "psr-4": {
             "App\\": "app/"
-        }
+        },
+        "files" : ["app/Http/Helpers/books_helper.php"]
     },
     "autoload-dev": {
         "classmap": [
