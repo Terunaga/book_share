@@ -25,5 +25,7 @@
         <!-- Bootstrap Core JavaScript -->
         <script src="/assets/javascripts/bootstrap.min.js"></script>
 
+        <script src="/assets/javascripts/books.js"></script>
+
     </body>
 </html>
