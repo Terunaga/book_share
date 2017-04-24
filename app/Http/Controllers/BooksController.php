@@ -16,6 +16,13 @@ class BooksController extends Controller
       $this->middleware('auth', array('only' => 'create'));
     }
 
+    public function show($id)
+    {
+      $book = Book::find($id);
+
+      return view('books.show')->with('book', $book);
+    }
+
     public function create()
     {
       $book    = new Book();

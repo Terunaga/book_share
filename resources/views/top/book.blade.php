@@ -1,6 +1,6 @@
 <div class="col-xs-6 col-md-3 portfolio-item">
-    <a href="#">
-        <img class="img-responsive" src="{{ $book->image }}" alt="">
+    <a href="/books/{{ $book->id }}">
+        <img class="img-responsive" src="{{ $book->image }}" alt="{{ $book->name }}">
         <h3>
             {{ $book->name }}
         </h3>
