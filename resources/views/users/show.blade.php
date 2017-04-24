@@ -36,8 +36,13 @@
 <hr>
 
 <div class="row">
-  @foreach($books as $book)
-    @include('top.book', ['book' => $book])
-  @endforeach
+  <div class="col-lg-12">
+    <div class="sub_header">
+      <h2 class="col-xs-10 sub_header--item"><span>マイブックリスト</span></h2>
+      @foreach($books as $book)
+        @include('top.book', ['book' => $book])
+      @endforeach
+    </div>
+  </div>
 </div>
 @endsection

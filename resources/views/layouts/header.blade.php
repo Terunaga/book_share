@@ -17,8 +17,8 @@
 
             <ul class="nav navbar-nav navbar-right">
               @if(Auth::check())
-              <li><a href="/books/create">登録する</a></li>
-              <li><a href="/users/{{ Auth::user()->id }}">マイページ</a></li>
+                <li><a href="/books/create">登録する</a></li>
+                <li><a href="/users/{{ Auth::user()->id }}">マイページ</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -28,10 +28,9 @@
                     <li><a href="/logout">ログアウト</a></li>
                   </ul>
                 </li>
-              @endif
-              @unless(Auth::check())
+              @else
                 <li><a href="/login">ログイン</a></li>
-              @endunless
+              @endif
             </ul>
         </div>
     </div>

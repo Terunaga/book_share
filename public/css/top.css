@@ -5,3 +5,13 @@
   margin-top: 20px;
   margin-left: 15px;
 }
+.row .portfolio-item a {
+  text-decoration: none;
+}
+.row .portfolio-item .author {
+  font-size: 15px;
+}
+.row .portfolio-item .rating-star {
+  font-size: 20px;
+  margin-bottom: 10px;
+}

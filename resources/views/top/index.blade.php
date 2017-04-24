@@ -7,9 +7,7 @@
 </div>
 <div class="row">
     <div class="col-lg-12">
-        <h1 class="page-header">Page Heading
-            <small>Secondary Text</small>
-        </h1>
+        <h1 class="page-header">貸出可能な図書リスト</h1>
     </div>
 </div>
 

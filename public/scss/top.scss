@@ -6,3 +6,20 @@
   margin-left: 15px;
   }
 }
+
+.row {
+  .portfolio-item {
+    a {
+      text-decoration: none;
+    }
+
+    .author {
+      font-size: 15px;
+    }
+
+    .rating-star {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+  }
+}

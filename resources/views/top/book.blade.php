@@ -1,13 +1,15 @@
-<div class="col-xs-3 portfolio-item">
+<div class="col-xs-6 col-md-3 portfolio-item">
     <a href="#">
         <img class="img-responsive" src="{{ $book->image }}" alt="">
+        <h3>
+            {{ $book->name }}
+        </h3>
     </a>
-    <h3>
-        <a href="#">{{ $book->name }}</a>
-    </h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+    <p class="author">著者：{{ $book->author->full_name() }}</p>
     <span class="rating-star">
         <i class="star-actived rate-90"></i>
     </span>
-    <p><a href="/books/{{ $book->id }}/edit" class="btn btn-primary">編集</a></p>
+    @if(Auth::check() && Auth::user() == $book->user)
+        <p><a href="/books/{{ $book->id }}/edit" class="btn btn-primary">編集</a></p>
+    @endif
 </div>

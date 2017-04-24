@@ -50,6 +50,10 @@ class BooksController extends Controller
       $book    = Book::find($id);
       $authors = Author::all();
 
+      if(Auth::user() != $book->user) {
+        return redirect('/');
+      }
+
       return view('books.edit')->with(array('book' => $book, 'authors' => $authors));
     }
 
