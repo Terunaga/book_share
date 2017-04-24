@@ -11,9 +11,10 @@ class UsersController extends Controller
 {
     public function show($id)
     {
-      $user = User::find($id);
+      $user  = User::find($id);
+      $books = $user->books()->get();
 
-      return view('users.show')->with('user', $user);
+      return view('users.show')->with(array('user' => $user, 'books' => $books));
     }
 
     public function edit($id)
@@ -25,6 +26,7 @@ class UsersController extends Controller
 
     public function update($id, Request $request)
     {
+      // eval(\Psy\SH());
       User::find($id)->update(
         array(
           'name'  => $request->name,

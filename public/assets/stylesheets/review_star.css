@@ -1,0 +1,74 @@
+.rating-star {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.1); }
+
+.bgcolor-black .rating-star, .bgcolor-gray-darker .rating-star, .bgcolor-gray-dark .rating-star {
+  color: rgba(255, 255, 255, 0.05); }
+
+.rating-star:before {
+  content: "\2605\2605\2605\2605\2605"; }
+
+.rating-star > .star-actived, .rating-star > .star-distribution {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 0%;
+  color: #F5A624;
+  font-style: normal;
+  word-wrap: normal; }
+
+.rating-star > .star-actived:before, .rating-star > .star-distribution:before {
+  content: "\2605\2605\2605\2605\2605"; }
+
+.rating-star > .star-distribution {
+  color: #8b8e96; }
+
+.rating-star .rate-100 {
+  width: 100%; }
+
+.rating-star .rate-90 {
+  width: 90%; }
+
+.rating-star .rate-80 {
+  width: 80%; }
+
+.rating-star .rate-70 {
+  width: 70%; }
+
+.rating-star .rate-60 {
+  width: 60%; }
+
+.rating-star .rate-50 {
+  width: 50%; }
+
+.rating-star .rate-40 {
+  width: 40%; }
+
+.rating-star .rate-30 {
+  width: 30%; }
+
+.rating-star .rate-20 {
+  width: 20%; }
+
+.rating-star .rate-10 {
+  width: 10%; }
+
+.rating-star .rate-5 {
+  width: 100%; }
+
+.rating-star .rate-4 {
+  width: 80%; }
+
+.rating-star .rate-3 {
+  width: 60%; }
+
+.rating-star .rate-2 {
+  width: 40%; }
+
+.rating-star .rate-1 {
+  width: 20%; }

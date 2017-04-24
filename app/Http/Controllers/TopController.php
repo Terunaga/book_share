@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Book;
 
 class TopController extends Controller
 {
     public function index()
     {
-      return view('top.index');
+      $books = Book::orderBy('created_at', 'desc')->paginate(10);
+
+      return view('top.index')->with('books', $books);
     }
 }

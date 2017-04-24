@@ -1,0 +1,23 @@
+.books {
+  font-size: 18px;
+
+  &__title,
+  &__image,
+  &__author_names,
+  &__author_lastname,
+  &__author_firstname
+  {
+    width: 100%;
+    height: 40px;
+    padding: 0 10px 0 10px;
+  }
+
+  &__author_names {
+    background-color: white;
+  }
+
+  &__comment {
+    width: 100%;
+    padding: 10px;
+  }
+}
