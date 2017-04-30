@@ -12,11 +12,14 @@
   <div class="col-lg-12">
     <div class="sub_header">
       <h2 class="col-xs-10 sub_header--item"><span>基本情報</span></h2>
-      @if (Auth::user() == $book->user)
-        <p class="col-xs-2 sub_header--button">
+      <p class="col-xs-2 sub_header--button">
+        @if(Auth::user() != $book->user)
+          <a href="/books/{{ $book->id }}/borrows/create" class="btn btn-primary">借りる</a>
+        @endif
+        @if (Auth::user() == $book->user)
           <a href="/books/{{ $book->id }}/edit" class="btn btn-primary">編集</a>
-        </p>
-      @endif
+        @endif
+      </p>
     </div>
 
     <div class="profile">
