@@ -20,6 +20,11 @@ class Book extends Model
       return $this->belongsTo(Author::class);
     }
 
+    public function scopeLendable($query)
+    {
+      return $query->where('status', 0);
+    }
+
     public function author_last_name()
     {
       return is_null($this->author) ? '' : $this->author->last_name;
