@@ -9,7 +9,12 @@
     <span class="rating-star">
         <i class="star-actived rate-90"></i>
     </span>
-    @if(Auth::check() && Auth::user() == $book->user)
-        <p><a href="/books/{{ $book->id }}/edit" class="btn btn-primary">編集</a></p>
-    @endif
+    <p>
+      @if(Auth::user() != $book->user)
+        <a href="/books/{{ $book->id }}/borrows/create" class="btn btn-primary">借りる</a>
+      @endif
+      @if(Auth::check() && Auth::user() == $book->user)
+        <a href="/books/{{ $book->id }}/edit" class="btn btn-default">編集</a>
+      @endif
+    </p>
 </div>
