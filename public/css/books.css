@@ -1,12 +1,12 @@
 .books {
   font-size: 18px;
 }
-.books__title, .books__image, .books__author_names, .books__author_lastname, .books__author_firstname {
+.books__title, .books__image, .books__status, .books__rate, .books__author_names, .books__author_lastname, .books__author_firstname {
   width: 100%;
   height: 40px;
   padding: 0 10px 0 10px;
 }
-.books__author_names {
+.books__author_names, .books__status, .books__rate {
   background-color: white;
 }
 .books__comment {

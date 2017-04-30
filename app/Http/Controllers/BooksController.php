@@ -45,6 +45,7 @@ class BooksController extends Controller
           'name'      => $request->name,
           'rate'      => $request->rate,
           'image'     => $request->image,
+          'status'    => $request->status,
           'comment'   => $request->comment,
           'author_id' => $author->id
         )
@@ -72,6 +73,7 @@ class BooksController extends Controller
           'name'    => $request->name,
           'rate'    => $request->rate,
           'image'   => $request->image,
+          'status'  => $request->status,
           'comment' => $request->comment
         )
       );

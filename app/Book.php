@@ -29,4 +29,17 @@ class Book extends Model
     {
       return is_null($this->author) ? '' : $this->author->first_name;
     }
+
+    public function show_status()
+    {
+      switch($this->status)
+      {
+        case 0:
+          return '貸出可';
+          break;
+        case 1:
+          return '貸出不可';
+          break;
+      }
+    }
 }

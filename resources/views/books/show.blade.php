@@ -36,6 +36,10 @@
           </div>
         </li>
         <li>
+          <div class="col-xs-3 profile__items--item">貸出状態</div>
+          <div class="col-xs-9 ">{{ $book->show_status() }}</div>
+        </li>
+        <li>
           <div class="col-xs-3 profile__items--item">図書オーナーのコメント</div>
           <div class="col-xs-9">{{ $book->comment }}</div>
         </li>
