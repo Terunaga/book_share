@@ -18,20 +18,33 @@
 * has_many :reviews
 * has_many :interests
 
+## Authors
+
+### authors_structure
+| column     | type   | constraint |
+|------------|--------|------------|
+| first_name | string | null false |
+| last_name  | string | null false |
+
+### users_associations
+* has_many :books
+
 ## Books
 
 ### books_structure
-| column   | type    | constraint              |
-|----------|---------|-------------------------|
-| name     | string  | unique, null false      |
-| rate     | integer | null false              |
-| comment  | text    |                         |
-| image    | text    |                         |
-| status   | integer | null false              |
-| user_id  | integer | null false, foreign_key |
+| column     | type    | constraint              |
+|------------|---------|-------------------------|
+| name       | string  | unique, null false      |
+| rate       | integer | null false              |
+| comment    | text    |                         |
+| image      | text    |                         |
+| status     | integer | null false              |
+| user_id    | integer | null false, foreign_key |
+| author_id  | integer | null false, foreign_key |
 
 ### books_associations
 * belongs_to :user
+* belongs_to :author
 * has_many :genres
 * has_many :loans
 * has_many :reviews
