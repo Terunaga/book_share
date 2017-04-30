@@ -10,4 +10,5 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('top', 'TopController', ['only' => 'index']);
     Route::resource('users', 'UsersController', ['only' => ['show', 'edit', 'update']]);
     Route::resource('books', 'BooksController', ['only' => ['create', 'store', 'edit', 'update', 'show']]);
+    Route::resource('books.borrows', 'Books\BorrowsController', ['only' => ['create', 'store']]);
 });
