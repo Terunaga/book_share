@@ -18,9 +18,12 @@ class CreateLoansTable extends Migration
             $table->foreign('borrower_id')->references('id')->on('users');
             $table->integer('lender_id')->unsigned();
             $table->foreign('lender_id')->references('id')->on('users');
+            $table->integer('book_id')->unsigned();
+            $table->foreign('book_id')->references('id')->on('books');
             $table->integer('status')->nullable(false);
             $table->date('start_date')->nullable(false);
             $table->date('finish_date')->nullable(false);
+            $table->text('comment');
             $table->timestamps();
         });
     }
