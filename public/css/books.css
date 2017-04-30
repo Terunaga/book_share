@@ -1,15 +1,16 @@
-.books {
+.books, .borrows {
   font-size: 18px;
 }
-.books__title, .books__image, .books__status, .books__rate, .books__author_names, .books__author_lastname, .books__author_firstname {
+.books__title, .borrows__title, .books__image, .borrows__image, .books__status, .borrows__status, .books__rate, .borrows__rate, .books__author_names, .borrows__author_names, .books__author_lastname, .borrows__author_lastname, .books__author_firstname, .borrows__author_firstname {
   width: 100%;
   height: 40px;
   padding: 0 10px 0 10px;
 }
-.books__author_names, .books__status, .books__rate {
+.books__author_names, .borrows__author_names, .books__status, .borrows__status, .books__rate, .borrows__rate {
   background-color: white;
 }
-.books__comment {
+.books__comment, .borrows__comment {
   width: 100%;
   padding: 10px;
+  height: 100px;
 }
