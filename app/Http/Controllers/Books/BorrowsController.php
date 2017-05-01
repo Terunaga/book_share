@@ -28,6 +28,7 @@ class BorrowsController extends Controller
     public function store($id, Request $request)
     {
       $book = Book::find($id);
+      $book->update(array('status' => 2));
       $book->loans()->create(
         array(
           'borrower_id' => Auth::user()->id,
