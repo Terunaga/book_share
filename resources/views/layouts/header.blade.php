@@ -18,6 +18,7 @@
             <ul class="nav navbar-nav navbar-right">
               @if(Auth::check())
                 <li><a href="/books/create">登録する</a></li>
+                <li><a href="/users/{{ Auth::user()->id }}">貸出リクエスト<span class="badge">{{ Auth::user()->requestedBookCounts() }}</span></a></li>
                 <li><a href="/users/{{ Auth::user()->id }}">マイページ</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>

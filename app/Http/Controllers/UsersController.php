@@ -11,10 +11,24 @@ class UsersController extends Controller
 {
     public function show($id)
     {
-      $user  = User::find($id);
-      $books = $user->books()->get();
+      $user            = User::find($id);
+      $my_books        = $user->books()->get();
+      $applying_books  = $user->applyingBooks();
+      $to_borrow_books = $user->toBorrowBooks();
+      $borrowing_books = $user->borrowingBooks();
+      $borrowed_books  = $user->borrowedBooks();
 
-      return view('users.show')->with(array('user' => $user, 'books' => $books));
+      // eval(\Psy\SH());
+      return view('users.show')->with(
+        array(
+          'user'             => $user,
+          'my_books'         => $my_books,
+          'applying_books'   => $applying_books,
+          'to_borrow_books'  => $to_borrow_books,
+          'borrowing_books'  => $borrowing_books,
+          'borrowed_books'   => $borrowed_books,
+        )
+      );
     }
 
     public function edit($id)
