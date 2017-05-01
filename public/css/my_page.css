@@ -17,3 +17,12 @@
 .profile__items--item {
   font-weight: bold;
 }
+.applying {
+  display: none;
+}
+.nav.nav-pills {
+  padding-bottom: 10px;
+}
+.nav.nav-pills li {
+  cursor: pointer;
+}

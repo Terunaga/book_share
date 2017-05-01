@@ -8,4 +8,12 @@ $(function(){
     $('.books__author_firstname').val(firstName);
     $('.books__author_lastname' ).val(lastName);
   });
+
+  $('.nav-pills li').on('click', function(){
+    $('.nav-pills li.active').removeClass('active');
+    $(this).addClass('active');
+
+    $('.book_lists .category').hide();
+    $('.' + this.id).show();
+  })
 });
