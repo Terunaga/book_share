@@ -11,7 +11,7 @@ class TopController extends Controller
 {
     public function index()
     {
-      $books = Book::lendable()->orderBy('created_at', 'desc')->paginate(10);
+      $books = Book::lendable()->not_my_books()->orderBy('created_at', 'desc')->paginate(10);
 
       return view('top.index')->with('books', $books);
     }

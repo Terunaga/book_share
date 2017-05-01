@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Book extends Model
 {
@@ -28,6 +29,13 @@ class Book extends Model
     public function scopeLendable($query)
     {
       return $query->where('status', 0);
+    }
+
+    public function scopeNot_my_books($query)
+    {
+      if(Auth::user()){
+        return $query->whereNotIn('user_id', [Auth::user()->id]);
+      }
     }
 
     public function author_last_name()
