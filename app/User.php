@@ -24,6 +24,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    // associations
     public function books()
     {
         return $this->hasMany(Book::class);
@@ -44,6 +45,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Book::class, 'loans', 'borrower_id', 'book_id');
     }
 
+    // instance methods
     public function requestedBookCounts()
     {
         $applying_records = $this->lend_loans()->applying()->get();

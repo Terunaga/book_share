@@ -10,6 +10,7 @@ class Loan extends Model
       'borrower_id','lender_id', 'book_id', 'status', 'start_date', 'finish_date', 'comment'
     );
 
+    // associations
     public function book()
     {
       return $this->belongsTo(Book::class);
@@ -20,6 +21,7 @@ class Loan extends Model
       return $this->belongsTo(User::class);
     }
 
+    // scopes
     public function scopeApplying($query)
     {
       return $query->where('status', 0);

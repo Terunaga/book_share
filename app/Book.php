@@ -11,6 +11,7 @@ class Book extends Model
       'name', 'rate', 'image', 'comment', 'status', 'author_id', 'user_id'
     );
 
+    // associations
     public function user()
     {
       return $this->belongsTo(User::class);
@@ -26,18 +27,7 @@ class Book extends Model
       return $this->hasMany(Loan::class);
     }
 
-    public function scopeLendable($query)
-    {
-      return $query->where('status', 0);
-    }
-
-    public function scopeNot_my_books($query)
-    {
-      if(Auth::user()){
-        return $query->whereNotIn('user_id', [Auth::user()->id]);
-      }
-    }
-
+    // instance methods
     public function author_last_name()
     {
       return is_null($this->author) ? '' : $this->author->last_name;
@@ -61,6 +51,7 @@ class Book extends Model
       }
     }
 
+    // scopes
     public function scopeApplying($query)
     {
       return $query->where('loans.status', '=', 0);
@@ -79,5 +70,17 @@ class Book extends Model
     public function scopeBorrowed($query)
     {
       return $query->where('loans.status', '=', 3);
+    }
+
+    public function scopeLendable($query)
+    {
+      return $query->where('status', 0);
+    }
+
+    public function scopeNot_my_books($query)
+    {
+      if(Auth::user()){
+        return $query->whereNotIn('user_id', [Auth::user()->id]);
+      }
     }
 }
