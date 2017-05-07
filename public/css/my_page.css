@@ -17,7 +17,7 @@
 .profile__items--item {
   font-weight: bold;
 }
-.applying {
+.applying, .toBorrow, .borrowing, .borrowed {
   display: none;
 }
 .nav.nav-pills {
