@@ -24,19 +24,4 @@ class Loan extends Model
     {
       return $query->where('status', 0);
     }
-
-    public function scopeTo_borrow($query)
-    {
-      return $query->where('status', 1);
-    }
-
-    public function scopeBorrowing($query)
-    {
-      return $query->where('status', 2);
-    }
-
-    public function scopeBorrowed($query)
-    {
-      return $query->where('status', 3);
-    }
 }

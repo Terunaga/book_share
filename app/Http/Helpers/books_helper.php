@@ -27,12 +27,3 @@ function book_rate()
     2  => '1. 非常に悪い'
   ];
 }
-
-function returnBooks($loans)
-{
-  $books = [];
-  foreach($loans as $loan) {
-    array_push($books, $loan->book);
-  }
-  return $books;
-}

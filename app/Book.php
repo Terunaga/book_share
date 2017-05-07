@@ -60,4 +60,24 @@ class Book extends Model
           break;
       }
     }
+
+    public function scopeApplying($query)
+    {
+      return $query->where('loans.status', '=', 0);
+    }
+
+    public function scopeTo_borrow($query)
+    {
+      return $query->where('loans.status', '=', 1);
+    }
+
+    public function scopeBorrowing($query)
+    {
+      return $query->where('loans.status', '=', 2);
+    }
+
+    public function scopeBorrowed($query)
+    {
+      return $query->where('loans.status', '=', 3);
+    }
 }

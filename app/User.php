@@ -39,7 +39,7 @@ class User extends Authenticatable
         return $this->hasMany(Loan::class, 'lender_id');
     }
 
-    public function applying_books()
+    public function loan_books()
     {
         return $this->belongsToMany(Book::class, 'loans', 'borrower_id', 'book_id');
     }
@@ -51,29 +51,5 @@ class User extends Authenticatable
         if($counts != 0){
             return $counts;
         }
-    }
-
-    public function applyingBooks()
-    {
-        $loans = $this->borrow_loans()->applying()->get();
-        return returnBooks($loans);
-    }
-
-    public function toBorrowBooks()
-    {
-        $loans = $this->borrow_loans()->to_borrow()->get();
-        return returnBooks($loans);
-    }
-
-    public function borrowingBooks()
-    {
-        $loans = $this->borrow_loans()->borrowing()->get();
-        return returnBooks($loans);
-    }
-
-    public function borrowedBooks()
-    {
-        $loans = $this->borrow_loans()->borrowed()->get();
-        return returnBooks($loans);
     }
 }
