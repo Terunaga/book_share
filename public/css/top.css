@@ -5,6 +5,9 @@
   margin-top: 20px;
   margin-left: 15px;
 }
+.row .book_lists .borrowing, .row .book_lists .popular, .row .book_lists .new {
+  display: none;
+}
 .row .portfolio-item a {
   text-decoration: none;
 }

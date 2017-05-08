@@ -7,6 +7,10 @@
   &--button {
     margin-top: 20px;
   }
+
+  .applying, .toBorrow, .borrowing, .borrowed {
+    display: none;
+  }
 }
 
 .profile {
@@ -23,10 +27,6 @@
       font-weight: bold;
     }
   }
-}
-
-.applying, .toBorrow, .borrowing, .borrowed {
-  display: none;
 }
 
 .nav.nav-pills {

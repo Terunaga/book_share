@@ -5,6 +5,9 @@
 .sub_header--button {
   margin-top: 20px;
 }
+.sub_header .applying, .sub_header .toBorrow, .sub_header .borrowing, .sub_header .borrowed {
+  display: none;
+}
 .profile {
   font-size: 18px;
 }
@@ -16,9 +19,6 @@
 }
 .profile__items--item {
   font-weight: bold;
-}
-.applying, .toBorrow, .borrowing, .borrowed {
-  display: none;
 }
 .nav.nav-pills {
   padding-bottom: 10px;

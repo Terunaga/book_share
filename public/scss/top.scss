@@ -8,6 +8,12 @@
 }
 
 .row {
+  .book_lists {
+    .borrowing, .popular, .new {
+      display: none;
+    }
+  }
+
   .portfolio-item {
     a {
       text-decoration: none;
