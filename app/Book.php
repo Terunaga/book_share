@@ -77,6 +77,11 @@ class Book extends Model
       return $query->where('status', 0);
     }
 
+    public function scopeBeing_borrowed($query)
+    {
+      return $query->where('status', 1);
+    }
+
     public function scopeNot_my_books($query)
     {
       if(Auth::user()){
