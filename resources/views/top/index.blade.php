@@ -42,6 +42,10 @@
 
 <div class="row text-center">
   <div class="col-lg-12">
+    {{ $lendable_books->render() }}
+    {{ $borrowing_books->render() }}
+    {{ $popular_books->render() }}
+    {{ $new_books->render() }}
   </div>
 </div>
 
