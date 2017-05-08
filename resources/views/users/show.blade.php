@@ -45,7 +45,7 @@
       <li id="borrowed" role="presentation"><a>読み終わった本</a></li>
     </ul>
     <div class="sub_header book_lists">
-      <div class="myBooks category" style="height: 600px">
+      <div class="myBooks category">
         @foreach($my_books as $book)
           @include('top.book', ['book' => $book])
         @endforeach
