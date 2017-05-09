@@ -63,9 +63,24 @@ class Book extends Model
 
     public function reserved_by_current_user()
     {
-      $reserved_records = $this->loans->where('borrower_id', Auth::user()->id)->where('status', 4);
+      $reserved_records= Loan::where('borrower_id', Auth::user()->id)
+                             ->where('book_id', $this->id)
+                             ->whereIn('status', [0, 1, 4])
+                             ->get();
       $counts = count($reserved_records);
-        if($counts == 1){
+        if($counts != 0){
+            return true;
+        }
+    }
+
+    public function being_borrowed_by_current_user()
+    {
+      $reserved_records= Loan::where('borrower_id', Auth::user()->id)
+                             ->where('book_id', $this->id)
+                             ->where('status', 2)
+                             ->get();
+      $counts = count($reserved_records);
+        if($counts != 0){
             return true;
         }
     }
