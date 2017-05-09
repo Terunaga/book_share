@@ -11,9 +11,14 @@
     </span>
     <p>
       @if(Auth::user() != $book->user)
-        <a href="/books/{{ $book->id }}/borrows/create" class="btn btn-primary">借りる</a>
-      @endif
-      @if(Auth::check() && Auth::user() == $book->user)
+        @if($book->can_lend())
+          <a href="/books/{{ $book->id }}/borrows/create" class="btn btn-primary">借りる</a>
+        @elseif($book->reserved_by_current_user())
+          <a href="" class="btn btn-primary disabled">予約済み</a>
+        @elseif($book->on_loan())
+          <a href="/books/{{ $book->id }}/reserves" class="btn btn-primary">次の予約する</a>
+        @endif
+      @else
         <a href="/books/{{ $book->id }}/edit" class="btn btn-default">編集</a>
       @endif
     </p>

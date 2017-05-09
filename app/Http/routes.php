@@ -11,4 +11,5 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('users', 'UsersController', ['only' => ['show', 'edit', 'update']]);
     Route::resource('books', 'BooksController', ['only' => ['create', 'store', 'edit', 'update', 'show']]);
     Route::resource('books.borrows', 'Books\BorrowsController', ['only' => ['create', 'store']]);
+    Route::get('books/{id}/reserves', 'Books\ReservesController@store');
 });

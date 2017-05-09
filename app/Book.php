@@ -51,6 +51,25 @@ class Book extends Model
       }
     }
 
+    public function can_lend()
+    {
+      return $this->status === 0;
+    }
+
+    public function on_loan()
+    {
+      return $this->status === 2;
+    }
+
+    public function reserved_by_current_user()
+    {
+      $reserved_records = $this->loans->where('borrower_id', Auth::user()->id)->where('status', 4);
+      $counts = count($reserved_records);
+        if($counts == 1){
+            return true;
+        }
+    }
+
     // scopes
     public function scopeApplying($query)
     {
