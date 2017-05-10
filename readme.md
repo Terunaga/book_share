@@ -74,6 +74,7 @@
 |---------|---------|-------------------------|
 | user_id | integer | foreign_key, null false |
 | book_id | integer | foreign_key, null false |
+| rate    | integer | null false              |
 | comment | text    |                         |
 
 ### reviews_associations
