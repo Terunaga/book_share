@@ -27,6 +27,11 @@ class Book extends Model
       return $this->hasMany(Loan::class);
     }
 
+    public function reviews()
+    {
+      return $this->hasMany(Review::class);
+    }
+
     // instance methods
     public function author_last_name()
     {

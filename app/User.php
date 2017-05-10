@@ -40,6 +40,11 @@ class User extends Authenticatable
         return $this->hasMany(Loan::class, 'lender_id');
     }
 
+    public function reviews()
+    {
+        return $this->hasMany(Review::class);
+    }
+
     public function loan_books()
     {
         return $this->belongsToMany(Book::class, 'loans', 'borrower_id', 'book_id');
