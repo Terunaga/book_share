@@ -26,6 +26,10 @@
 
     &--image {
       float: left;
+
+      img {
+        height: 300px;
+      }
     }
 
     li div{

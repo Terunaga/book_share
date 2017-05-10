@@ -21,6 +21,9 @@
 .profile__items--image {
   float: left;
 }
+.profile__items--image img {
+  height: 300px;
+}
 .profile__items li div {
   padding: 15px 0 15px 0;
 }
