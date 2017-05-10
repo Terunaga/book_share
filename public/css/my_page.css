@@ -14,6 +14,13 @@
 .profile__items {
   list-style: none;
 }
+.profile__items__lists {
+  float: left;
+  width: 70%;
+}
+.profile__items--image {
+  float: left;
+}
 .profile__items li div {
   padding: 15px 0 15px 0;
 }

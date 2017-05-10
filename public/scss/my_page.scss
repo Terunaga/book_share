@@ -19,6 +19,15 @@
   &__items {
     list-style: none;
 
+    &__lists {
+      float: left;
+      width: 70%;
+    }
+
+    &--image {
+      float: left;
+    }
+
     li div{
       padding: 15px 0 15px 0;
     }
