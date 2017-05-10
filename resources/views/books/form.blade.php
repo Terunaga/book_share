@@ -48,7 +48,7 @@
       {{ Form::label('rate', '評価') }}
     </div>
     <div  class="col-xs-9">
-      {{ Form::select('rate', book_rate(), null, ['class' => 'books__rate', 'required' => 'true']) }}
+      {{ Form::select('rate', book_rate(), $review->rate, ['class' => 'books__rate', 'required' => 'true']) }}
     </div>
   </li>
   <li>
@@ -56,7 +56,7 @@
       {{ Form::label('comment', 'コメント') }}
     </div>
     <div  class="col-xs-9">
-      {{ Form::textarea('comment', $book->comment, ['class' => 'books__comment', 'placeholder' => '本のコメントを記入してください（任意）']) }}
+      {{ Form::textarea('comment', $review->comment, ['class' => 'books__comment', 'placeholder' => '本のコメントを記入してください（任意）']) }}
     </div>
   </li>
   <div class="row">

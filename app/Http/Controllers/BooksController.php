@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Book;
+use App\Review;
 use App\Author;
 use Auth;
 
@@ -18,17 +19,21 @@ class BooksController extends Controller
 
     public function show($id)
     {
-      $book = Book::find($id);
+      $book   = Book::find($id);
+      $review = Review::where('book_id', $id)
+                      ->where('user_id', $book->user->id)
+                      ->first();
 
-      return view('books.show')->with('book', $book);
+      return view('books.show')->with(array('book' => $book, 'review' => $review));
     }
 
     public function create()
     {
       $book    = new Book();
       $authors = Author::all();
+      $review  = new Review();
 
-      return view('books.create')->with(array('book' => $book, 'authors' => $authors));
+      return view('books.create')->with(array('book' => $book, 'authors' => $authors, 'review' => $review));
     }
 
     public function store(Request $request)
@@ -40,16 +45,22 @@ class BooksController extends Controller
           'last_name'  => $request->last_name
         )
       );
-      $user->books()->create(
+      $book = $user->books()->create(
         array(
           'name'      => $request->name,
-          'rate'      => $request->rate,
           'image'     => $request->image,
           'status'    => $request->status,
-          'comment'   => $request->comment,
           'author_id' => $author->id
         )
       );
+      $book->reviews()->create(
+        array(
+          'user_id' => $user->id,
+          'rate'    => $request->rate,
+          'comment' => $request->comment
+        )
+      );
+
       return redirect('/');
     }
 
@@ -57,12 +68,15 @@ class BooksController extends Controller
     {
       $book    = Book::find($id);
       $authors = Author::all();
+      $review  = Review::where('book_id', $id)
+                       ->where('user_id', $book->user->id)
+                       ->first();
 
       if(Auth::user() != $book->user) {
         return redirect('/');
       }
 
-      return view('books.edit')->with(array('book' => $book, 'authors' => $authors));
+      return view('books.edit')->with(array('book' => $book, 'authors' => $authors, 'review' => $review));
     }
 
     public function update($id, Request $request)
@@ -71,10 +85,8 @@ class BooksController extends Controller
       $book->update(
         array(
           'name'    => $request->name,
-          'rate'    => $request->rate,
           'image'   => $request->image,
-          'status'  => $request->status,
-          'comment' => $request->comment
+          'status'  => $request->status
         )
       );
       $book->author->update(
@@ -82,6 +94,14 @@ class BooksController extends Controller
           'first_name' => $request->first_name,
           'last_name'  => $request->last_name
         )
+      );
+      Review::where('book_id', $book->id)
+            ->where('user_id', Auth::user()->id)
+            ->update(
+                array(
+                  'rate'    => $request->rate,
+                  'comment' => $request->comment
+                )
       );
 
       return redirect('/');

@@ -45,13 +45,13 @@
           </li>
           <li>
             <div class="col-xs-5 profile__items--item">図書オーナーのコメント</div>
-            <div class="col-xs-7">{{ $book->comment }}</div>
+            <div class="col-xs-7">{{ $review->comment }}</div>
           </li>
           <li>
             <div class="col-xs-5 profile__items--item">図書オーナーのオススメ度</div>
             <div class="col-xs-7">
               <span class="rating-star">
-                <i class="star-actived rate-{{ $book->rate }}0"></i>
+                <i class="star-actived rate-{{ $review->rate }}0"></i>
               </span>
             </div>
           </li>
