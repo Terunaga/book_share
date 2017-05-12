@@ -29,14 +29,10 @@
   </li>
   <li>
     <div class="col-xs-3 profile__items--item">
-      {{ Form::label('rate', '評価') }}
+      {{ Form::label('status', '貸出状態') }}
     </div>
     <div  class="col-xs-9">
-      {{ Form::radio('rate', '10') }}&emsp;5. &ensp;非常に良い<br/>
-      {{ Form::radio('rate', '8') }}&emsp;4. &ensp;良い<br/>
-      {{ Form::radio('rate', '6', ['required' => 'true']) }}&emsp;3. &ensp;普通<br/>
-      {{ Form::radio('rate', '4') }}&emsp;2. &ensp;悪い<br/>
-      {{ Form::radio('rate', '2') }}&emsp;1. &ensp;非常に悪い
+      {{ Form::select('status', loan_status(), null, ['class' => 'books__status']) }}
     </div>
   </li>
   <li>
@@ -49,10 +45,18 @@
   </li>
   <li>
     <div class="col-xs-3 profile__items--item">
+      {{ Form::label('rate', '評価') }}
+    </div>
+    <div  class="col-xs-9">
+      {{ Form::select('rate', book_rate(), $review->rate, ['class' => 'books__rate', 'required' => 'true']) }}
+    </div>
+  </li>
+  <li>
+    <div class="col-xs-3 profile__items--item">
       {{ Form::label('comment', 'コメント') }}
     </div>
     <div  class="col-xs-9">
-      {{ Form::textarea('comment', $book->comment, ['class' => 'books__comment', 'placeholder' => '本のコメントを記入してください（任意）']) }}
+      {{ Form::textarea('comment', $review->comment, ['class' => 'books__comment', 'placeholder' => '本のコメントを記入してください（任意）']) }}
     </div>
   </li>
   <div class="row">

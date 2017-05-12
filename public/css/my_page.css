@@ -5,15 +5,34 @@
 .sub_header--button {
   margin-top: 20px;
 }
+.sub_header .applying, .sub_header .toBorrow, .sub_header .borrowing, .sub_header .borrowed {
+  display: none;
+}
 .profile {
   font-size: 18px;
 }
 .profile__items {
   list-style: none;
 }
+.profile__items__lists {
+  float: left;
+  width: 70%;
+}
+.profile__items--image {
+  float: left;
+}
+.profile__items--image img {
+  height: 300px;
+}
 .profile__items li div {
   padding: 15px 0 15px 0;
 }
 .profile__items--item {
   font-weight: bold;
+}
+.nav.nav-pills {
+  padding-bottom: 10px;
+}
+.nav.nav-pills li {
+  cursor: pointer;
 }

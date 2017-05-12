@@ -1,8 +1,10 @@
-.books {
+.books, .borrows {
   font-size: 18px;
 
   &__title,
   &__image,
+  &__status,
+  &__rate,
   &__author_names,
   &__author_lastname,
   &__author_firstname
@@ -12,12 +14,16 @@
     padding: 0 10px 0 10px;
   }
 
-  &__author_names {
+  &__author_names,
+  &__status,
+  &__rate
+  {
     background-color: white;
   }
 
   &__comment {
     width: 100%;
     padding: 10px;
+    height: 100px;
   }
 }

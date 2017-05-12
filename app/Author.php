@@ -10,11 +10,13 @@ class Author extends Model
       'first_name', 'last_name'
     );
 
+    // associations
     public function books()
     {
         return $this->hasMany(Book::class);
     }
 
+    // instance methods
     public function full_name()
     {
       return $this->last_name . ' ' . $this->first_name;

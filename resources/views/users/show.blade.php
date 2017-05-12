@@ -37,11 +37,39 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <div class="sub_header">
-      <h2 class="col-xs-10 sub_header--item"><span>マイブックリスト</span></h2>
-      @foreach($books as $book)
-        @include('top.book', ['book' => $book])
-      @endforeach
+    <ul class="nav nav-pills">
+      <li id="myBooks" role="presentation" class="active"><a>マイブック</a></li>
+      <li id="applying" role="presentation"><a>貸出申請中</a></li>
+      <li id="toBorrow" role="presentation"><a>借り出し待ち</a></li>
+      <li id="borrowing" role="presentation"><a>借り出し中</a></li>
+      <li id="borrowed" role="presentation"><a>読み終わった本</a></li>
+    </ul>
+    <div class="sub_header book_lists">
+      <div class="myBooks category">
+        @foreach($my_books as $book)
+          @include('top.book', ['book' => $book])
+        @endforeach
+      </div>
+      <div class="applying category">
+        @foreach($applying_books as $book)
+          @include('top.book', ['book' => $book])
+        @endforeach
+      </div>
+      <div class="toBorrow category">
+        @foreach($to_borrow_books as $book)
+          @include('top.book', ['book' => $book])
+        @endforeach
+      </div>
+      <div class="borrowing category">
+        @foreach($borrowing_books as $book)
+          @include('top.book', ['book' => $book])
+        @endforeach
+      </div>
+      <div class="borrowed category">
+        @foreach($borrowed_books as $book)
+          @include('top.book', ['book' => $book])
+        @endforeach
+      </div>
     </div>
   </div>
 </div>

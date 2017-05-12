@@ -25,7 +25,9 @@
         <!-- Bootstrap Core JavaScript -->
         <script src="/assets/javascripts/bootstrap.min.js"></script>
 
+        <script src="/assets/javascripts/dateformat.js"></script>
         <script src="/assets/javascripts/books.js"></script>
+        <script src="/assets/javascripts/borrows.js"></script>
 
     </body>
 </html>

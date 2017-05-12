@@ -7,3 +7,23 @@ function author_names($authors)
   });
   return $author_names->prepend('選択してください');
 }
+
+function loan_status()
+{
+  return [
+    0 => '貸出可',
+    1 => '貸出不可'
+  ];
+}
+
+function book_rate()
+{
+  return [
+    '' => '選択してください',
+    10 => '5. 非常に良い',
+    8  => '4. 良い',
+    6  => '3. 普通',
+    4  => '2. 悪い',
+    2  => '1. 非常に悪い'
+  ];
+}
