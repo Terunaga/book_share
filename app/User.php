@@ -59,4 +59,16 @@ class User extends Authenticatable
             return $counts;
         }
     }
+
+    public function writableReviews()
+    {
+        $borrowed_books = $this->loan_books()->borrowed()->get();
+        $writable_books = [];
+        foreach($borrowed_books as $book){
+            if (count($book->reviews->where('user_id', $this->id)) === 0){
+                array_push($writable_books, $book);
+            };
+        };
+        return $writable_books;
+    }
 }
