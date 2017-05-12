@@ -17,8 +17,8 @@ class AppServiceProvider extends ServiceProvider
     {
         View::composer('*', function($view){
             if(Auth::check()){
-                $writableBooks = Auth::user()->writableReviews();
-                $view->with('writableBooks', $writableBooks);
+                $writable_books = Auth::user()->writableReviews();
+                $view->with('writable_books', $writable_books);
             }
         });
     }

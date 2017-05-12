@@ -19,6 +19,16 @@
               @if(Auth::check())
                 <li><a href="/books/create">登録する</a></li>
                 <li><a href="/users/{{ Auth::user()->id }}">貸出リクエスト<span class="badge">{{ Auth::user()->requestedBookCounts() }}</span></a></li>
+                @if(count($writable_books) != 0)
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">レビューを書く<span class="badge">{{ count($writable_books) }}<span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        @foreach($writable_books as $book)
+                          <li><a href="/books/{{ $book->id }}/reviews/create">{{ $book->name }}</a></li>
+                        @endforeach
+                      </ul>
+                    </li>
+                @endif
                 <li><a href="/users/{{ Auth::user()->id }}">マイページ</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
