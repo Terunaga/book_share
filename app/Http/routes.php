@@ -12,5 +12,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('books', 'BooksController', ['only' => ['create', 'store', 'edit', 'update', 'show']]);
     Route::resource('books.borrows', 'Books\BorrowsController', ['only' => ['create', 'store']]);
     Route::resource('books.reviews', 'Books\ReviewsController', ['only' => ['create', 'store']]);
+    Route::resource('users.lends', 'Users\LendsController', ['only' => ['index', 'update']]);
     Route::get('books/{id}/reserves', 'Books\ReservesController@store');
 });
