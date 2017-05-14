@@ -50,6 +50,11 @@ class User extends Authenticatable
         return $this->belongsToMany(Book::class, 'loans', 'borrower_id', 'book_id');
     }
 
+    public function lend_books()
+    {
+        return $this->belongsToMany(Book::class, 'loans', 'lender_id', 'book_id');
+    }
+
     // instance methods
     public function requestedBookCounts()
     {
