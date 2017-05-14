@@ -45,7 +45,7 @@ class User extends Authenticatable
         return $this->hasMany(Review::class);
     }
 
-    public function loan_books()
+    public function borrow_books()
     {
         return $this->belongsToMany(Book::class, 'loans', 'borrower_id', 'book_id');
     }
@@ -67,7 +67,7 @@ class User extends Authenticatable
 
     public function writableReviews()
     {
-        $borrowed_books = $this->loan_books()->borrowed()->get();
+        $borrowed_books = $this->borrow_books()->borrowed()->get();
         $writable_books = [];
         foreach($borrowed_books as $book){
             if (count($book->reviews->where('user_id', $this->id)) === 0){

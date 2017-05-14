@@ -13,10 +13,10 @@ class UsersController extends Controller
     {
       $user            = User::find($id);
       $my_books        = $user->books()->get();
-      $applying_books  = $user->loan_books()->applying()->get();
-      $to_borrow_books = $user->loan_books()->to_borrow()->get();
-      $borrowing_books = $user->loan_books()->borrowing()->get();
-      $borrowed_books  = $user->loan_books()->borrowed()->get();
+      $applying_books  = $user->borrow_books()->applying()->get();
+      $to_borrow_books = $user->borrow_books()->to_borrow()->get();
+      $borrowing_books = $user->borrow_books()->borrowing()->get();
+      $borrowed_books  = $user->borrow_books()->borrowed()->get();
 
       // eval(\Psy\SH());
       return view('users.show')->with(
