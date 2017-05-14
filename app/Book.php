@@ -32,6 +32,11 @@ class Book extends Model
       return $this->hasMany(Review::class);
     }
 
+    public function borrowers()
+    {
+      return $this->belongsToMany(User::class, 'loans', 'book_id', 'borrower_id');
+    }
+
     // instance methods
     public function author_last_name()
     {
@@ -88,6 +93,24 @@ class Book extends Model
         if($counts != 0){
             return true;
         }
+    }
+
+    public function applicable_client()
+    {
+      return $this->borrowers()->applying()->first();
+    }
+
+    public function applicable_loan()
+    {
+      return $this->loans()->where('status', '=', 0)
+                           ->where('lender_id', '=', Auth::user()->id)
+                           ->first();
+    }
+
+    public function loan_period()
+    {
+      $loan = $this->applicable_loan();
+      return $loan->start_date . ' 〜 ' . $loan->finish_date;
     }
 
     // scopes

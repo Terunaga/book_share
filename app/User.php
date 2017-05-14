@@ -76,4 +76,10 @@ class User extends Authenticatable
         };
         return $writable_books;
     }
+
+    // scopes
+    public function scopeApplying($query)
+    {
+      return $query->where('loans.status', '=', 0);
+    }
 }
