@@ -1,0 +1,48 @@
+.books_box--list {
+  list-style: none;
+  height: 200px;
+  border: 1px solid #8e8e8e;
+  border-radius: 20px;
+  padding: 15px;
+  margin: 10px 0 30px -40px;
+}
+.books_box--list__image {
+  height: 170px;
+  padding: 0 35px;
+  float: left;
+}
+.books_box--list__info {
+  float: left;
+  margin: 0 20px;
+}
+.books_box--list__info .message .borrower_message_key {
+  display: inline-block;
+  top: 0px;
+  float: left;
+}
+.books_box--list__info .message .borrower_message_value {
+  display: inline-block;
+  overflow: scroll;
+  width: 350px;
+  height: 60px;
+  float: left;
+}
+.books_box--list__info .book_name_key, .books_box--list__info .borrower_key, .books_box--list__info .duration_key, .books_box--list__info .borrower_message_key {
+  font-size: 18px;
+  font-weight: bold;
+  width: 110px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.books_box--list__info .book_name_value, .books_box--list__info .borrower_value, .books_box--list__info .duration_value, .books_box--list__info .borrower_message_value {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.books_box--list__buttons {
+  float: right;
+  padding-right: 35px;
+  margin: 10px 0;
+}
+.books_box--list__buttons .allow_button, .books_box--list__buttons .reject_button {
+  margin: 15px 0;
+}

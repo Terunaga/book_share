@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="/css/my_page.css">
         <link rel="stylesheet" href="/css/top.css">
         <link rel="stylesheet" href="/css/books.css">
+        <link rel="stylesheet" href="/css/lends.css">
     </head>
 
     <body>
