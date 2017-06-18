@@ -4,6 +4,14 @@
     <div class="col-xs-9 ">{{ $book->name }}</div>
   </li>
   <li>
+    <div class="col-xs-3 profile__items--item">著者</div>
+    <div class="col-xs-9 ">{{ $book->author->full_name() }}</div>
+  </li>
+  <li>
+    <div class="col-xs-3 profile__items--item">図書オーナー</div>
+    <div class="col-xs-9 "><a href="/users/{{ $book->user->id }}">{{ $book->user->name }}</a></div>
+  </li>
+  <li>
     <div class="col-xs-3 profile__items--item">貸出状態</div>
     <div class="col-xs-9 ">{{ $book->show_status() }}</div>
   </li>

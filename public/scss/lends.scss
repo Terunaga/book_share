@@ -1,0 +1,64 @@
+.books_box {
+  &--list {
+    list-style: none;
+    height: 200px;
+    border: 1px solid #8e8e8e;
+    border-radius: 20px;
+    padding: 15px;
+    margin: 10px 0 30px -40px;
+
+    &__image {
+      height: 170px;
+      padding: 0 35px;
+      float: left;
+    }
+
+    &__info {
+      float: left;
+      margin: 0 20px;
+
+      .message {
+
+        .borrower_message_key {
+          display: inline-block;
+          top: 0px;
+          float: left;
+        }
+
+        .borrower_message_value {
+          display: inline-block;
+          overflow: scroll;
+          width: 350px;
+          height: 60px;
+          float: left;
+        }
+
+      }
+
+      .book_name_key, .borrower_key, .duration_key, .borrower_message_key {
+        font-size: 18px;
+        font-weight: bold;
+        width: 110px;
+        display: inline-block;
+        margin-bottom: 10px;
+      }
+
+      .book_name_value, .borrower_value, .duration_value, .borrower_message_value {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+    }
+
+    &__buttons {
+      float: right;
+      padding-right: 35px;
+      margin: 10px 0;
+
+
+      .allow_button, .reject_button {
+        margin: 15px 0;
+      }
+    }
+
+  }
+}

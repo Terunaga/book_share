@@ -45,9 +45,14 @@ class User extends Authenticatable
         return $this->hasMany(Review::class);
     }
 
-    public function loan_books()
+    public function borrow_books()
     {
         return $this->belongsToMany(Book::class, 'loans', 'borrower_id', 'book_id');
+    }
+
+    public function lend_books()
+    {
+        return $this->belongsToMany(Book::class, 'loans', 'lender_id', 'book_id');
     }
 
     // instance methods
@@ -62,7 +67,7 @@ class User extends Authenticatable
 
     public function writableReviews()
     {
-        $borrowed_books = $this->loan_books()->borrowed()->get();
+        $borrowed_books = $this->borrow_books()->borrowed()->get();
         $writable_books = [];
         foreach($borrowed_books as $book){
             if (count($book->reviews->where('user_id', $this->id)) === 0){
@@ -70,5 +75,11 @@ class User extends Authenticatable
             };
         };
         return $writable_books;
+    }
+
+    // scopes
+    public function scopeApplying($query)
+    {
+      return $query->where('loans.status', '=', 0);
     }
 }

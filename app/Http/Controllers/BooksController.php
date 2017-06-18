@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-use App\Http\Requests;
+use App\Http\Requests\BookRequest;
 use App\Book;
 use App\Review;
 use App\Author;
@@ -36,7 +37,7 @@ class BooksController extends Controller
       return view('books.create')->with(array('book' => $book, 'authors' => $authors, 'review' => $review));
     }
 
-    public function store(Request $request)
+    public function store(BookRequest $request)
     {
       $user   = Auth::user();
       $author = Author::firstOrcreate(

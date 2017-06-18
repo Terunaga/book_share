@@ -1,11 +1,16 @@
 <ul class="profile__items">
-  <li>
+  <li class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
     <div class="col-xs-3 profile__items--item">
       {{ Form::label('name', 'タイトル') }}
     </div>
-    <div class="col-xs-9 ">
+    <div class="col-xs-9">
       {{ Form::text('name', $book->name, ['class' => 'books__title', 'placeholder' => '本のタイトルを記入してください（必須）', 'required' => 'true']) }}
     </div>
+    @if ($errors->has('name'))
+        <span class="help-block">
+            <strong>{{ $errors->first('name') }}</strong>
+        </span>
+    @endif
   </li>
   <li>
     <div class="col-xs-3 profile__items--item">
@@ -15,7 +20,7 @@
       {{ Form::select('authors', author_names($authors), null, ['class' => 'books__author_names']) }}
     </div>
   </li>
-  <li>
+  <li class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }} form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
     <div class="col-xs-3 profile__items--item">
     </div>
     <div class="col-xs-4">
@@ -26,6 +31,16 @@
     <div class="col-xs-4">
       {{ Form::text('first_name', $book->author_first_name(), ['class' => 'books__author_firstname', 'placeholder' => '著者の名を記入してください（必須）', 'required' => 'true']) }}
     </div>
+    @if ($errors->has('last_name'))
+        <span class="help-block">
+            <strong>{{ $errors->first('last_name') }}</strong>
+        </span>
+    @endif
+    @if ($errors->has('first_name'))
+        <span class="help-block">
+            <strong>{{ $errors->first('first_name') }}</strong>
+        </span>
+    @endif
   </li>
   <li>
     <div class="col-xs-3 profile__items--item">
@@ -43,13 +58,18 @@
       {{ Form::text('image', $book->image, ['class' => 'books__image', 'placeholder' => '本の表紙のイメージのURLを記入してください（任意）']) }}
     </div>
   </li>
-  <li>
+  <li class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
     <div class="col-xs-3 profile__items--item">
       {{ Form::label('rate', '評価') }}
     </div>
     <div  class="col-xs-9">
       {{ Form::select('rate', book_rate(), $review->rate, ['class' => 'books__rate', 'required' => 'true']) }}
     </div>
+    @if ($errors->has('rate'))
+        <span class="help-block">
+            <strong>{{ $errors->first('rate') }}</strong>
+        </span>
+    @endif
   </li>
   <li>
     <div class="col-xs-3 profile__items--item">

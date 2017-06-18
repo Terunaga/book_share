@@ -11,10 +11,10 @@ class TopController extends Controller
 {
     public function index()
     {
-      $lendable_books  = Book::lendable()->orderBy('created_at', 'desc')->paginate(10);
-      $borrowing_books = Book::being_borrowed()->orderBy('created_at', 'desc')->paginate(10);
-      $popular_books   = Book::not_my_books()->orderBy('created_at', 'desc')->paginate(10);
-      $new_books       = Book::orderBy('created_at', 'desc')->paginate(10);
+      $lendable_books  = Book::lendable()->orderBy('created_at', 'desc')->paginate(20);
+      $borrowing_books = Book::being_borrowed()->orderBy('created_at', 'desc')->paginate(20);
+      $popular_books   = Book::not_my_books()->orderBy('created_at', 'desc')->paginate(20);
+      $new_books       = Book::orderBy('created_at', 'desc')->paginate(20);
 
       return view('top.index')->with(
         array(
